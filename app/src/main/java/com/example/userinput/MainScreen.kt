@@ -109,7 +109,9 @@ fun MainScreen(
         ) {
             Text( "Simpan")
         }
-        Card (modifier.size(height = 200.dp, width = 300.dp)) {
+        Card (
+            modifier.size(height = 250.dp, width = 300.dp)
+        ) {
             CardSection(judulParam = "Nama", isiParam = namaUser)
             CardSection(judulParam = "Jenis Kelamin", isiParam = selectedGenderUser)
             CardSection(judulParam = "Email", isiParam = emailUser)
@@ -120,10 +122,14 @@ fun MainScreen(
 }
 
 @Composable
-    fun CardSection(judulParam:String, isiParam:String){
+    fun CardSection(
+    judulParam:String,
+    isiParam:String){
         Column {
-            Row(Modifier.fillMaxWidth().padding(8.dp),
-                horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(Modifier.fillMaxWidth()
+                .padding(8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(text = judulParam, Modifier.weight(0.8f))
                 Text(text = ":", Modifier.weight(0.2f))
                 Text(text = isiParam, Modifier.weight(2f))
