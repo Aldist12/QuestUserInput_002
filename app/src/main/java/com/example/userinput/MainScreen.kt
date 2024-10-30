@@ -22,7 +22,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -44,15 +43,21 @@ fun MainScreen(
     var noHPUser by remember { mutableStateOf("") }
     var selectedGenderUser by remember { mutableStateOf("") }
 
-    Column (Modifier.fillMaxSize().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally){
-        OutlinedTextField(value = nama,
+    Column (
+        Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        OutlinedTextField (
+            value = nama,
             onValueChange = {nama = it},
             placeholder = { Text( "Masukkan Nama")},
             label = { Text("Nama") },
             modifier = Modifier.fillMaxWidth().padding(5.dp)
         )
 
-        Row(){
+        Row() {
             jenisKelamin.forEach { item ->
             Row (verticalAlignment = Alignment.CenterVertically){
                 RadioButton(
@@ -65,20 +70,23 @@ fun MainScreen(
 
         }
         }
-        OutlinedTextField(value = email,
+        OutlinedTextField (
+            value = email,
                 onValueChange = {email = it},
                 placeholder = { Text( "Masukkan Email")},
                 label = { Text("Email") },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 modifier = Modifier.fillMaxWidth().padding(5.dp)
             )
-        OutlinedTextField(value = alamat,
-                    onValueChange = {alamat = it},
-                    placeholder = { Text( "Masukkan Alamat")},
-                    label = { Text("Alamat") },
-                    modifier = Modifier.fillMaxWidth().padding(5.dp)
+        OutlinedTextField (
+            value = alamat,
+            onValueChange = {alamat = it},
+            placeholder = { Text( "Masukkan Alamat")},
+            label = { Text("Alamat") },
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
                 )
-        OutlinedTextField(value = noHP,
+        OutlinedTextField (
+            value = noHP,
             onValueChange = {noHP = it},
             placeholder = { Text( "Masukkan NoHp")},
             label = { Text("NoHp") },
@@ -86,8 +94,13 @@ fun MainScreen(
             modifier = Modifier.fillMaxWidth().padding(5.dp)
         )
 
-        Button(onClick ={}
-
+        Button(onClick = {
+            namaUser = nama
+            selectedGenderUser = selectedGender
+            emailUser = email
+            alamatUser = alamat
+            noHPUser = noHP
+        },
         ) {
             Text( "Simpan")
         }
