@@ -3,6 +3,7 @@ package com.example.userinput
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -37,6 +38,7 @@ fun MainScreen(
     var selectedGender by remember { mutableStateOf("") }
 
     val jenisKelamin = listOf("Laki-Laki", "Perempuan")
+
     var namaUser by rememberSaveable { mutableStateOf("") }
     var emailUser by remember { mutableStateOf("") }
     var alamatUser by remember { mutableStateOf("") }
@@ -49,6 +51,9 @@ fun MainScreen(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
+        Spacer(modifier = Modifier.size(25.dp))
+        Text(text = "Data Pengguna")
+
         OutlinedTextField (
             value = nama,
             onValueChange = {nama = it},
